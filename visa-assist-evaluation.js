@@ -41,8 +41,8 @@ function evaluation(event) {
 
             MailApp.sendEmail(emailAddress, "Hi " + name + ",\n Can you please evaluate the Visa Assist program?", "Please open your email with a client that supports HTML", {
                     htmlBody: htmlForEmail,
-                    bcc: "visaassistrobot@unionsnsw.org.au",
-                    cc: "mwatts@unionsnsw.org.au"
+                    bcc: "addyouremail",
+                    cc: "addanotheremail"
                 }
 
             );

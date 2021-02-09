@@ -3,7 +3,7 @@
  */
 
 function onEdit(e) { //"e" receives the event object
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Sheet1");
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Active");
     var range = e.range; //The range of cells edited
     var columnOfCellEdited = range.getColumn(); //Get column number
     var active_range = sheet.getActiveRange();
@@ -28,7 +28,7 @@ function onEdit(e) { //"e" receives the event object
         MailApp.sendEmail(emailAddress, "Hi " + name + ",\n your client: " + client + "\n was updated", "Please open your email with a client that supports HTML", {
                 htmlBody: htmlForEmail,
                 cc: clientEmail,
-                bcc: "visaassistrobot@unionsnsw.org.au"
+                bcc: "addyouremail"
             }
 
         );

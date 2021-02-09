@@ -8,7 +8,7 @@ function blank() {
         return;
     }
 
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Sheet1");
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Active");
     var startRow = 2; // Start at second row because the first row contains the data labels
     var lastRow = sheet.getLastRow();
     var lastCol = sheet.getLastColumn();
@@ -49,9 +49,9 @@ function blank() {
             return;
         } else if (cell == "" && todayDate > formattedDate) {
 
-            MailApp.sendEmail("Visa.assist@iarc.asn.au", "Hi IARC, Could you please let " + row[1] + " what is happening with their client", "Please open your email with a client that supports HTML", {
+            MailApp.sendEmail("addyouremail", "Hi IARC, Could you please let " + row[1] + " what is happening with their client", "Please open your email with a client that supports HTML", {
                     htmlBody: htmlForEmail,
-                    bcc: "visaassistrobot@unionsnsw.org.au"
+                    bcc: "addyouremail"
                 }
 
             );
