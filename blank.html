@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base target="_top" />
+</head>
+
+<body>
+
+    <div style="max-width: 600px; margin:5%;">
+        <div style="text-align:center">
+            <h2 style="background-color:rgb(2, 175, 189); color:white">
+                Can you please let <?= referrer ?> know what is happening with their client: <?= name ?>.
+            </h2>
+        </div>
+
+        <div>
+            <p>Hi IARC,<p>
+
+                    <p>Column R on the Visa Assist spreadsheet for the client: <?= name ?> from the <?= union ?> has
+                        been left blank for 4 days - can you please fill it out?</p>
+                    <p>They were referred on: <strong> <?= referred ?>.</strong></p>
+                    <p><a
+                            href="https://docs.google.com/spreadsheets/d/1jU3fl66Kn5ciUsmdL0Awjvdms5D2UjqqUem32-8pk-I/edit?usp=sharing">Could
+                            you please fill out the column: Was the client contacted? Did they answer?</a></p>
+
+                    <p>Thanks,</p>
+                    <p>The Visa Assist Robot</p>
+        </div>
+    </div>
+</body>
+
+</html>
