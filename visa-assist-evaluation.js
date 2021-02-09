@@ -1,11 +1,7 @@
 /**
  * Sends an email to client if IARC checks the evaluation check box.
  */
-
-// https://support.google.com/docs/forum/AAAABuH1jm0hR40qh02UWE/?hl=en&gpf=%23!topic%2Fdocs%2FhR40qh02UWE
-
-
-function evaluation(event) {
+function evaluation() {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Active");
     var startRow = 2; // Start at second row because the first row contains the data labels
     var lastRow = sheet.getLastRow();
@@ -15,10 +11,6 @@ function evaluation(event) {
     // Fetch values for each row in the Range.
     var data = dataRange.getValues();
     var htmlBody = HtmlService.createTemplateFromFile('eval-email');
-    var ss = SpreadsheetApp.getActiveSpreadsheet();
-    var s = event.source.getActiveSheet();
-    var r = event.source.getActiveRange();
-
 
     for (var i = 0; i < data.length - 1; ++i) {
         var row = data[i];
@@ -32,28 +24,22 @@ function evaluation(event) {
         Logger.log("Remaining email quota: " + emailQuotaRemaining);
 
 
-
+        var cellTime = row[18];
         var cell = row[19]; // checkbox
         var sentCol = 21;
 
 
-        if (cell == true) {
+        if (cellTime == "") {
+            return;
+        } else if (cell == true && row[20] == "") {
 
             MailApp.sendEmail(emailAddress, "Hi " + name + ",\n Can you please evaluate the Visa Assist program?", "Please open your email with a client that supports HTML", {
                     htmlBody: htmlForEmail,
-                    bcc: "visaassistrobot@unionsnsw.org.au",
-                    cc: "mwatts@unionsnsw.org.au"
+                    cc: "visaassistrobot@unionsnsw.org.au"
                 }
 
             );
             sheet.getRange(startRow + i, sentCol).setValue(date);
-            var row = r.getRow();
-            var numColumns = s.getMaxColumns();
-            var targetSheet = ss.getSheetByName("Completed");
-            var target = targetSheet.getRange(targetSheet.getLastRow() + 1, 1);
-            s.getRange(row, 1, 1, numColumns).moveTo(target);
-            s.deleteRow(row);
-
         }
 
     }
