@@ -2,7 +2,7 @@
 
 TLDR: Automation using Google Sheets and Google App Script.
 
-Automating email sends from Google sheets.
+Automating email sends from Google sheets for a service your NGO looks after.
 
 What you need to do first:
 - Need to create a google sheet.
