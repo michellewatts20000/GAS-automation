@@ -1,8 +1,8 @@
-# GAS-automation
+# Google App Script Automation
 
-Automation using Google Sheets and Google app script.
+TLDR: Automation using Google Sheets and Google App Script.
 
-Automating email sends from Google sheets. 
+Automating email sends from Google sheets.
 
 What you need to do first:
 - Need to create a google sheet.
