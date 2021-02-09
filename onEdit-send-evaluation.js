@@ -39,7 +39,7 @@ function evaluation(event) {
 
         if (cell == true) {
 
-            MailApp.sendEmail(emailAddress, "Hi " + name + ",\n Can you please evaluate the Visa Assist program?", "Please open your email with a client that supports HTML", {
+            MailApp.sendEmail(emailAddress, "Hi " + name + ",\n Subject goes here", "Please open your email with a client that supports HTML", {
                     htmlBody: htmlForEmail,
                     bcc: "addyouremail",
                     cc: "addanotheremail"
